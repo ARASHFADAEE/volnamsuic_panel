@@ -1,0 +1,515 @@
+/* Define custom fonts */
+
+@font-face {
+  font-family: 'Peyda';
+  font-style: normal;
+  font-weight: 100;
+  /* FF39+,Chrome36+, Opera24+*/
+  src: url('../assets/fonts/Peyda-faNum/WebFonts/woff2/PeydaWebFaNum-Thin.woff2')
+      format('woff2'),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url('../assets/fonts/Peyda-faNum/WebFonts/woff/PeydaWebFaNum-Thin.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Peyda';
+  font-style: normal;
+  font-weight: 300;
+  /* FF39+,Chrome36+, Opera24+*/
+  src: url('../assets/fonts/Peyda-faNum/WebFonts/woff2/PeydaWebFaNum-Light.woff2')
+      format('woff2'),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url('../assets/fonts/Peyda-faNum/WebFonts/woff/PeydaWebFaNum-Light.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Peyda';
+  font-style: normal;
+  font-weight: normal;
+  /* FF39+,Chrome36+, Opera24+*/
+  src: url('../assets/fonts/Peyda-faNum/WebFonts/woff2/PeydaWebFaNum-Regular.woff2')
+      format('woff2'),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url('../assets/fonts/Peyda-faNum/WebFonts/woff/PeydaWebFaNum-Regular.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Peyda';
+  font-style: normal;
+  font-weight: 500;
+  /* FF39+,Chrome36+, Opera24+*/
+  src: url('../assets/fonts/Peyda-faNum/WebFonts/woff2/PeydaWebFaNum-Medium.woff2')
+      format('woff2'),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url('../assets/fonts/Peyda-faNum/WebFonts/woff/PeydaWebFaNum-Medium.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Peyda';
+  font-style: normal;
+  font-weight: bold;
+  /* FF39+,Chrome36+, Opera24+*/
+  src: url('../assets/fonts/Peyda-faNum/WebFonts/woff2/PeydaWebFaNum-Bold.woff2')
+      format('woff2'),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url('../assets/fonts/Peyda-faNum/WebFonts/woff/PeydaWebFaNum-Bold.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Peyda';
+  font-style: normal;
+  font-weight: 900;
+  /* FF39+,Chrome36+, Opera24+*/
+  src: url('../assets/fonts/Peyda-faNum/WebFonts/woff2/PeydaWebFaNum-Black.woff2')
+      format('woff2'),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url('../assets/fonts/Peyda-faNum/WebFonts/woff/PeydaWebFaNum-Black.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Morabba';
+  src: url('../assets/fonts/moraba/MORABBA-REGULAR.TTF') format('truetype');
+  font-weight: normal;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+input,
+button {
+  outline: none !important;
+  border: none !important;
+}
+
+a {
+  text-decoration: none !important;
+  outline: none !important;
+  color: black !important;
+}
+
+:root {
+  --morabba-font-family: 'Morabba';
+  --payda-font-family: 'Peyda';
+  --c-brand-100: #b6fadba7;
+  --c-brand: #25a56a;
+  --c-black-700: rgba(37, 38, 42, 1);
+  --c-gray-10: rgba(246, 246, 246, 1);
+  --c-gray-50: rgb(248, 248, 248);
+  --c-white-400: rgba(255, 255, 255, 1);
+  --c-gray-400: rgba(171, 171, 171, 1);
+  --c-gray-700: rgba(48, 48, 48, 1);
+  --c-gray-600: rgba(125, 125, 125, 1);
+  --c-pending: rgba(255, 103, 17, 1);
+  --c-done: rgba(37, 180, 77, 1);
+}
+
+body {
+  font-family: var(--payda-font-family);
+  background-color: var(--c-gray-50);
+}
+
+figure,
+p {
+  margin-bottom: 0;
+}
+
+.dir-ltr {
+  direction: ltr;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.py-medium {
+  padding-block: 0.7rem !important;
+}
+
+/* font's */
+
+.font-payda {
+  font-family: var(--payda-font-family) !important;
+}
+
+.font-morabba {
+  font-family: var(--morabba-font-family) !important;
+}
+
+.custom-font {
+  font-size: clamp(0.85rem, 1.5vw, 0.8rem);
+}
+
+.fs-x-small {
+  font-size: clamp(0.7rem, 3vw, 0.875rem);
+}
+
+.fs-xxs {
+  font-size: 0.7rem;
+}
+
+.fs-xs {
+  font-size: 0.87rem; /* 13.92px */
+}
+
+/* background color */
+
+.bg-black-700 {
+  background-color: var(--c-black-700);
+}
+
+.bg-gray-10 {
+  background-color: var(--c-gray-10);
+}
+
+.bg-gray-50 {
+  background-color: var(--c-gray-50);
+}
+
+.bg-brand {
+  background-color: var(--c-brand);
+}
+
+.bg-brand-100 {
+  background-color: var(--c-brand-100);
+}
+
+.bg-gray-700 {
+  background-color: var(--c-gray-700);
+}
+
+/* text color */
+
+.text-white-400 {
+  color: var(--c-white-400) !important;
+}
+
+.text-gray-600 {
+  color: var(--c-gray-600) !important;
+}
+
+.text-gray-400 {
+  color: var(--c-gray-400) !important;
+}
+
+.text-brand {
+  color: var(--c-brand) !important;
+}
+
+.text-pending {
+  color: var(--c-pending);
+}
+
+.text-done {
+  color: var(--c-done);
+}
+
+/* sizing */
+
+.w-90 {
+  width: 90%;
+}
+
+.h-full {
+  height: 100vh;
+}
+
+.h-90 {
+  height: 90vh;
+}
+
+/* border */
+
+.border-gray-700 {
+  border-color: var(--c-gray-700) !important;
+}
+
+/* aside */
+
+.main-aside {
+  position: sticky;
+  min-height: 100%;
+}
+
+.main-aside-link {
+  padding-block: 0.2rem;
+  border-radius: 5px;
+}
+
+.main-aside-link:hover {
+  background-color: rgba(48, 48, 48);
+}
+
+/* hover */
+
+.gray-btn-hover {
+  transition: all ease-in-out 0.3s;
+}
+
+.gray-btn-hover:hover {
+  background-color: rgb(228, 228, 228);
+}
+
+.brand-100-hover {
+  transition: all ease-in-out 0.4s;
+}
+
+.brand-100-hover:hover {
+  background-color: var(--c-brand);
+  color: #fff !important;
+}
+
+.brand-100-hover:hover path {
+  fill: #fff;
+}
+
+/* main aside */
+.main-aside-link.active {
+  background-color: rgba(48, 48, 48, 1);
+}
+
+/* main nav */
+
+.user-img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+}
+
+.hamburger-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* saved ausbildung */
+
+.ausbildung-share-btn {
+  width: 25px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: 5px;
+  right: 0.5rem;
+}
+
+.ausbildung-save-btn {
+  width: 25px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: 5px;
+  right: 2.5rem;
+}
+
+.ausbildung-save {
+  width: 22px;
+}
+
+.ausbildung-share {
+  width: 15px;
+}
+
+.ausbildung-img-container .ausbildung-img {
+  width: 144px;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* table's */
+
+.table-tab-btn {
+  width: 6.9rem;
+}
+
+.panel-table tr:nth-child(even) {
+  background-color: var(--c-gray-50);
+}
+
+/* .custom-w {
+  min-width: 500px !important;
+} */
+
+.tabs-line {
+  width: 100%;
+  height: 2px;
+  bottom: 2px;
+  background-color: var(--c-gray-10);
+}
+
+.table-tab-btn.active {
+  font-weight: 500;
+  color: var(--c-brand);
+  border-bottom: 2px solid var(--c-brand) !important;
+}
+
+.panel-table {
+  border-collapse: collapse;
+}
+
+.panel-table tr:first-child th:first-child {
+  border-top-right-radius: 10px;
+}
+
+.panel-table tr:last-child td:first-child {
+  border-bottom-right-radius: 10px;
+}
+
+.panel-table tr:last-child td:last-child {
+  border-bottom-left-radius: 10px;
+}
+
+.panel-table tr:first-child th:last-child {
+  border-top-left-radius: 10px;
+}
+
+/* save ausbildung page */
+
+.save-ausbildung-container::-webkit-scrollbar {
+  width: 12px;
+  background-color: rgba(217, 217, 217, 1);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+/* ::-webkit-scrollbar-track */
+
+.save-ausbildung-container::-webkit-scrollbar-thumb {
+  background-color: rgba(114, 114, 114, 1);
+}
+
+/* user info */
+
+.user-img-lg {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+}
+
+/* user info */
+
+.user-info-felids {
+  font-size: 0.8rem;
+}
+
+.user-info-felids.phone-input[dir='auto'] {
+  direction: rtl;
+}
+
+.phone-input[dir='auto']::placeholder {
+  text-align: right;
+}
+
+/* write resume request */
+
+.info-toast {
+  background-color: rgba(255, 237, 175, 0.33);
+  outline: 2px dashed rgba(255, 237, 175, 1);
+}
+
+.success-toast {
+  background-color: rgba(130, 255, 172, 0.3);
+  outline: 2px dashed rgba(130, 255, 172, 1);
+}
+
+@media screen and (max-width: 700px) {
+  .panel-table td::before {
+    content: attr(data-label);
+    float: right;
+    font-weight: bold;
+    color: #000 !important;
+  }
+  .panel-table thead {
+    display: none;
+  }
+
+  .panel-table tr {
+    display: block;
+    margin-bottom: 0.625em;
+    position: relative;
+  }
+
+  .panel-table td {
+    display: flex;
+    font-size: 0.8em;
+    text-align: right;
+    gap: 10px;
+  }
+
+  .panel-table .operations-cell {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+@media (min-width: 45rem) {
+  /* sizing */
+  .w-md-100 {
+    width: 100% !important;
+  }
+
+  .w-md-50 {
+    width: 50% !important;
+  }
+
+  .w-md-45 {
+    width: 45% !important;
+  }
+
+  /* background-color */
+
+  /* main page */
+
+  .main-container {
+    padding-right: 70px;
+  }
+
+  .bg-md-white {
+    background-color: white;
+  }
+
+  .log-out-icon path {
+    fill: black;
+  }
+
+  /* saved ausbildung */
+
+  .save-ausbildung {
+    width: 15.25rem;
+  }
+
+  .ausbildung-img-container .ausbildung-img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* sae ausbildung page */
+
+  .save-ausbildung-container {
+    max-height: 85vh;
+    padding-bottom: 0.5rem !important;
+  }
+}
+
+@media (min-width: 75rem) {
+  /* sizing */
+
+  .w-lg-50 {
+    width: 50% !important;
+  }
+
+  /* main page */
+
+  .main-container {
+    padding-right: 240px;
+  }
+}
