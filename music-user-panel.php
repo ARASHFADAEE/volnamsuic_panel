@@ -62,7 +62,7 @@ function music_panel_deactivate() {
 
 // افزودن endpoint ها به وردپرس
 function music_panel_add_endpoints() {
-    add_rewrite_endpoint('panel', EP_ROOT);
+    add_rewrite_endpoint('user-panel', EP_ROOT);
     add_rewrite_endpoint('saved-music', EP_ROOT);
     add_rewrite_endpoint('profile', EP_ROOT);
 }
