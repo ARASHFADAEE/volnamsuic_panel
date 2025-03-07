@@ -18,7 +18,7 @@ define('MUSIC_PANEL_URL', plugin_dir_url(__FILE__));
 
 // لود کردن فایل‌های مورد نیاز
 require_once MUSIC_PANEL_PATH . 'includes/functions.php';
-require_once MUSIC_PANEL_PATH . 'includes/class-music-panel-profile.php';
+require_once MUSIC_PANEL_PATH . 'includes/profile-functions.php';
 require_once MUSIC_PANEL_PATH . 'includes/saved-music-functions.php';
 
 // فعال‌سازی پلاگین
@@ -62,7 +62,7 @@ function music_panel_deactivate() {
 
 // افزودن endpoint ها به وردپرس
 function music_panel_add_endpoints() {
-    add_rewrite_endpoint('user-panel', EP_ROOT);
+    add_rewrite_endpoint('panel', EP_ROOT);
     add_rewrite_endpoint('saved-music', EP_ROOT);
     add_rewrite_endpoint('profile', EP_ROOT);
 }
@@ -72,11 +72,11 @@ add_action('init', 'music_panel_add_endpoints');
 function music_panel_template_redirect() {
     global $wp_query;
     
-    // بررسی endpoint های مختلف
-    if (isset($wp_query->query_vars['user-panel'])) {
+    // بررسی endpoint های مختلف یا پارامتر GET
+    if (isset($wp_query->query_vars['user-panel']) || (isset($_GET['page']) && $_GET['page'] == 'user-panel')) {
         // بررسی لاگین بودن کاربر
         if (!is_user_logged_in()) {
-            wp_redirect(wp_login_url(home_url('user-panel')));
+            wp_redirect(wp_login_url(home_url('?page=user-panel')));
             exit;
         }
         
@@ -84,10 +84,10 @@ function music_panel_template_redirect() {
         exit;
     }
     
-    if (isset($wp_query->query_vars['saved-music'])) {
+    if (isset($wp_query->query_vars['saved-music']) || (isset($_GET['page']) && $_GET['page'] == 'saved-music')) {
         // بررسی لاگین بودن کاربر
         if (!is_user_logged_in()) {
-            wp_redirect(wp_login_url(home_url('saved-music')));
+            wp_redirect(wp_login_url(home_url('?page=saved-music')));
             exit;
         }
         
@@ -95,10 +95,10 @@ function music_panel_template_redirect() {
         exit;
     }
     
-    if (isset($wp_query->query_vars['profile'])) {
+    if (isset($wp_query->query_vars['profile']) || (isset($_GET['page']) && $_GET['page'] == 'profile')) {
         // بررسی لاگین بودن کاربر
         if (!is_user_logged_in()) {
-            wp_redirect(wp_login_url(home_url('profile')));
+            wp_redirect(wp_login_url(home_url('?page=profile')));
             exit;
         }
         
@@ -113,9 +113,9 @@ function music_panel_enqueue_scripts() {
     // بوت‌استرپ
     wp_enqueue_style('bootstrap-rtl', MUSIC_PANEL_URL . 'assets/css/bootstrap.rtl.min.css', array(), '5.3.0');
     wp_enqueue_script('bootstrap-js', MUSIC_PANEL_URL . 'assets/js/bootstrap.bundle.min.js', array('jquery'), '5.3.0', true);
-    wp_enqueue_style('style-css-panel', MUSIC_PANEL_URL . 'assets/css/style.css', array(), '5.3.0');
 
     // استایل‌های سفارشی
+    wp_enqueue_style('music-panel-css', MUSIC_PANEL_URL . 'assets/css/style.css', array(), MUSIC_PANEL_VERSION);
     wp_enqueue_script('music-panel-js', MUSIC_PANEL_URL . 'assets/js/music-panel.js', array('jquery'), MUSIC_PANEL_VERSION, true);
     
     // اضافه کردن متغیرهای ajax
