@@ -32,7 +32,7 @@ class Music_Panel_Core {
         // راه‌اندازی کلاس‌ها
         new Music_Panel_Ajax();
         new Music_Panel_Saved_Music();
-        new Music_Panel_User();
+        // new Music_Panel_User();
         new Music_Panel_Profile(); // راه‌اندازی کلاس پروفایل
     }
     
