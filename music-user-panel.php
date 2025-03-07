@@ -20,7 +20,7 @@ define('MUSIC_PANEL_URL', plugin_dir_url(__FILE__));
 
 // لود کردن فایل‌های مورد نیاز
 require_once MUSIC_PANEL_PATH . 'includes/functions.php';
-// require_once MUSIC_PANEL_PATH . 'includes/endpoints.php';
+require_once MUSIC_PANEL_PATH . 'includes/endpoints.php';
 // require_once MUSIC_PANEL_PATH . 'includes/profile-functions.php';
 // require_once MUSIC_PANEL_PATH . 'includes/saved-music-functions.php';
 
