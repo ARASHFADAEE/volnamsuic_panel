@@ -17,10 +17,10 @@ define('MUSIC_PANEL_PATH', plugin_dir_path(__FILE__));
 define('MUSIC_PANEL_URL', plugin_dir_url(__FILE__));
 
 // لود کردن فایل‌های مورد نیاز
-require_once MUSIC_PANEL_PATH . 'includes/functions.php';
-require_once MUSIC_PANEL_PATH . 'includes/endpoints.php';
-require_once MUSIC_PANEL_PATH . 'includes/profile-functions.php';
-require_once MUSIC_PANEL_PATH . 'includes/saved-music-functions.php';
+require_once MUSIC_PANEL_PATH . '/includes/functions.php';
+require_once MUSIC_PANEL_PATH . '/includes/endpoints.php';
+require_once MUSIC_PANEL_PATH . '/includes/profile-functions.php';
+require_once MUSIC_PANEL_PATH . '/includes/saved-music-functions.php';
 
 // اضافه کردن CSS و JS
 function music_panel_enqueue_scripts() {
