@@ -60,6 +60,7 @@ function music_panel_deactivate() {
     flush_rewrite_rules();
 }
 
+
 // افزودن endpoint ها به وردپرس
 function music_panel_add_endpoints() {
     add_rewrite_endpoint('user-panel', EP_ROOT);
@@ -110,18 +111,27 @@ add_action('template_redirect', 'music_panel_template_redirect');
 
 // اضافه کردن CSS و JS
 function music_panel_enqueue_scripts() {
-    // بوت‌استرپ
-    wp_enqueue_style('bootstrap-rtl', MUSIC_PANEL_URL . 'assets/css/bootstrap.rtl.min.css', array(), '5.3.0');
-    wp_enqueue_script('bootstrap-js', MUSIC_PANEL_URL . 'assets/js/bootstrap.bundle.min.js', array('jquery'), '5.3.0', true);
+    // گرفتن URL فعلی
+    $current_url = $_SERVER['REQUEST_URI'];
 
-    // استایل‌های سفارشی
-    wp_enqueue_style('music-panel-css', MUSIC_PANEL_URL . 'assets/css/style.css', array(), MUSIC_PANEL_VERSION);
-    wp_enqueue_script('music-panel-js', MUSIC_PANEL_URL . 'assets/js/music-panel.js', array('jquery'), MUSIC_PANEL_VERSION, true);
-    
-    // اضافه کردن متغیرهای ajax
-    wp_localize_script('music-panel-js', 'music_panel', array(
-        'ajax_url' => admin_url('admin-ajax.php'),
-        'nonce' => wp_create_nonce('music_panel_nonce')
-    ));
+    // بررسی URL خاص
+    if ( strpos($current_url, '/user-panel/') !== false || 
+         strpos($current_url, '/saved-music/') !== false || 
+         strpos($current_url, '/profile/') !== false ) {
+         
+        // بوت‌استرپ
+        wp_enqueue_style('bootstrap-rtl', MUSIC_PANEL_URL . 'assets/css/bootstrap.rtl.min.css', array(), '5.3.0');
+        wp_enqueue_script('bootstrap-js', MUSIC_PANEL_URL . 'assets/js/bootstrap.bundle.min.js', array('jquery'), '5.3.0', true);
+
+        // استایل‌های سفارشی
+        wp_enqueue_style('music-panel-css', MUSIC_PANEL_URL . 'assets/css/style.css', array(), MUSIC_PANEL_VERSION);
+        wp_enqueue_script('music-panel-js', MUSIC_PANEL_URL . 'assets/js/music-panel.js', array('jquery'), MUSIC_PANEL_VERSION, true);
+        
+        // اضافه کردن متغیرهای ajax
+        wp_localize_script('music-panel-js', 'music_panel', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('music_panel_nonce')
+        ));
+    }
 }
 add_action('wp_enqueue_scripts', 'music_panel_enqueue_scripts');
