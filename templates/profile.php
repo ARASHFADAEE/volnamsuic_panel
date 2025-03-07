@@ -14,14 +14,11 @@ if (!is_user_logged_in()) {
 $current_user = wp_get_current_user();
 $user_id = $current_user->ID;
 
-// دریافت نمونه کلاس پروفایل
-$profile_manager = new Music_Panel_Profile();
-
 // دریافت متادیتای کاربر
 $first_name = get_user_meta($user_id, 'first_name', true);
 $last_name = get_user_meta($user_id, 'last_name', true);
-$phone_number = $profile_manager->get_user_phone($user_id);
-$profile_image_url = $profile_manager->get_profile_image_url($user_id, 'medium');
+$phone_number = music_panel_get_user_phone($user_id);
+$profile_image_url = music_panel_get_profile_image_url($user_id, 'medium');
 
 // نمایش پیام‌های خطا یا موفقیت
 $error_message = '';

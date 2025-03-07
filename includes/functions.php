@@ -5,38 +5,42 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * افزودن endpoint ها به وردپرس
+ * نمایش پیام‌های خطا یا موفقیت
  */
-function music_panel_add_endpoints() {
-    add_rewrite_endpoint('user-panel', EP_ROOT);
-    add_rewrite_endpoint('saved-music', EP_ROOT);
-    add_rewrite_endpoint('profile', EP_ROOT);
+function music_panel_show_messages() {
+    if (!session_id()) {
+        session_start();
+    }
+    
+    $output = '';
+    
+    if (isset($_SESSION['profile_error'])) {
+        $output .= '<div class="alert alert-danger">' . esc_html($_SESSION['profile_error']) . '</div>';
+        unset($_SESSION['profile_error']);
+    }
+    
+    if (isset($_SESSION['profile_success'])) {
+        $output .= '<div class="alert alert-success">' . esc_html($_SESSION['profile_success']) . '</div>';
+        unset($_SESSION['profile_success']);
+    }
+    
+    return $output;
 }
-add_action('init', 'music_panel_add_endpoints');
 
 /**
- * مدیریت endpoint ها و لود کردن قالب‌های مناسب
+ * دریافت تاریخ شمسی
  */
-function music_panel_template_redirect() {
-    global $wp_query;
-    
-    // بررسی endpoint های مختلف
-    if (isset($wp_query->query_vars['user-panel'])) {
-        music_panel_check_login();
-        include(MUSIC_PANEL_PATH . 'templates/dashboard.php');
-        exit;
+function music_panel_get_jalali_date() {
+    if (function_exists('jdate')) {
+        return jdate('l Y/m/d');
     }
-    
-    if (isset($wp_query->query_vars['saved-music'])) {
-        music_panel_check_login();
-        include(MUSIC_PANEL_PATH . 'templates/saved-music.php');
-        exit;
-    }
-    
-    if (isset($wp_query->query_vars['profile'])) {
-        music_panel_check_login();
-        include(MUSIC_PANEL_PATH . 'templates/profile.php');
-        exit;
-    }
+    return date('Y/m/d');
 }
-add_action('template_redirect', 'music_panel_template_redirect');
+
+/**
+ * پاسخ خطا برای AJAX در صورت لاگین نبودن
+ */
+function music_panel_ajax_login_required() {
+    wp_send_json_error('لطفا وارد حساب کاربری خود شوید.');
+    exit;
+}
