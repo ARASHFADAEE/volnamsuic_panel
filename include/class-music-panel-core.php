@@ -27,11 +27,13 @@ class Music_Panel_Core {
         require_once MUSIC_PANEL_PATH . 'includes/class-music-panel-ajax.php';
         require_once MUSIC_PANEL_PATH . 'includes/class-music-panel-saved-music.php';
         require_once MUSIC_PANEL_PATH . 'includes/class-music-panel-user.php';
+        require_once MUSIC_PANEL_PATH . 'includes/class-music-panel-profile.php'; // اضافه کردن کلاس پروفایل
         
         // راه‌اندازی کلاس‌ها
         new Music_Panel_Ajax();
         new Music_Panel_Saved_Music();
         new Music_Panel_User();
+        new Music_Panel_Profile(); // راه‌اندازی کلاس پروفایل
     }
     
     public function add_endpoints() {
@@ -72,7 +74,10 @@ class Music_Panel_Core {
         wp_enqueue_style('music-panel-style-css', MUSIC_PANEL_URL . 'css/style.css', array(), MUSIC_PANEL_VERSION);
 
         wp_enqueue_script('music-panel-js', MUSIC_PANEL_URL . '/js/bootstrap/bootstrap.bundle.min.js', array('jquery'), MUSIC_PANEL_VERSION, true);
-
+            // اضافه کردن فایل اعتبارسنجی پروفایل
+    if (isset($GLOBALS['wp_query']->query_vars['profile'])) {
+        wp_enqueue_script('profile-validation-js', MUSIC_PANEL_URL . 'assets/js/profile-validation.js', array('jquery'), MUSIC_PANEL_VERSION, true);
+    }
         
         // اضافه کردن متغیرهای ajax
         wp_localize_script('music-panel-js', 'music_panel', array(
