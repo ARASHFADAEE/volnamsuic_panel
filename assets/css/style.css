@@ -514,6 +514,7 @@
     }
   }
 
+
   div#offcanvasNavbar {
-    background: rgba(37, 38, 42, 1);
+    background: #25262a !important;
 }

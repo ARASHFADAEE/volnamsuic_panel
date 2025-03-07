@@ -58,7 +58,7 @@ $latest_posts = get_posts(array(
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/volna-music_logo.svg'); ?>" alt="" />
                     </div>
                     <ul class="navbar-nav gap-3 custom-font d-flex flex-column my-3">
-                        <li class="main-aside-link nav-item">
+                        <li class="main-aside-link nav-item active">
                             <a class="nav-link ps-3 text-white-400 fs-xs d-flex gap-2 align-items-center" aria-current="page" href="<?php echo home_url('user-panel'); ?>">
                                 <img src="<?php echo MUSIC_PANEL_URL; ?>assets/icons/dashboard-icon.svg" alt="" />
                                 <span class="d-none d-xl-inline">داشبورد</span>
@@ -70,7 +70,7 @@ $latest_posts = get_posts(array(
                                 <span class="d-none d-xl-inline">موزیک های ذخیره شده</span>
                             </a>
                         </li>
-                        <li class="main-aside-link nav-item active">
+                        <li class="main-aside-link nav-item ">
                             <a class="nav-link ps-3 text-white-400 d-flex gap-2 align-items-center" href="<?php echo home_url('profile'); ?>">
                                 <img src="<?php echo MUSIC_PANEL_URL; ?>assets/icons/user-icon.svg" alt="" />
                                 <span class="d-none d-xl-inline">ویرایش اطلاعات کاربری</span>
